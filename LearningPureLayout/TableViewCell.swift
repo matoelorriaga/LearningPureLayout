@@ -22,22 +22,20 @@ class TableViewCell: UITableViewCell {
         
         contentView.addSubview(customImageView)
         contentView.addSubview(customTextLabel)
+        
+        customImageView.autoSetDimension(ALDimension.width, toSize: 80)
+        customImageView.autoSetDimension(ALDimension.height, toSize: 80)
+        customImageView.autoPinEdge(ALEdge.top, to: ALEdge.top, of: contentView, withOffset: 10)
+        customImageView.autoPinEdge(ALEdge.left, to: ALEdge.left, of: contentView, withOffset: 10)
+        
+        customTextLabel.autoPinEdge(ALEdge.top, to: ALEdge.top, of: contentView)
+        customTextLabel.autoPinEdge(ALEdge.right, to: ALEdge.right, of: contentView, withOffset: -10)
+        customTextLabel.autoPinEdge(ALEdge.bottom, to: ALEdge.bottom, of: contentView)
+        customTextLabel.autoPinEdge(ALEdge.left, to: ALEdge.right, of: customImageView, withOffset: 10)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override func layoutSubviews() {
-        customImageView.autoSetDimension(ALDimension.width, toSize: contentView.bounds.width / 4)
-        customImageView.autoPinEdge(ALEdge.top, to: ALEdge.top, of: contentView, withOffset: 10)
-        customImageView.autoPinEdge(ALEdge.bottom, to: ALEdge.bottom, of: contentView, withOffset: -10)
-        customImageView.autoPinEdge(ALEdge.left, to: ALEdge.left, of: contentView, withOffset: 10)
-        
-        customTextLabel.autoPinEdge(ALEdge.left, to: ALEdge.right, of: customImageView, withOffset: 10)
-        customTextLabel.autoPinEdge(ALEdge.right, to: ALEdge.right, of: contentView, withOffset: -10)
-        customTextLabel.autoPinEdge(ALEdge.top, to: ALEdge.top, of: contentView)
-        customTextLabel.autoPinEdge(ALEdge.bottom, to: ALEdge.bottom, of: contentView)
     }
     
 }
